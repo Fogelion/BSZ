@@ -1,0 +1,14 @@
+.shops_list a span{
+	display: inline-block;
+  border-radius: 5px 5px 0 0;
+  width: 100px;
+  margin-right: 10px;
+  text-align: center;
+  background: #ddd;
+  padding: 5px;
+}
+
+.shops_list a span.active {
+  background: #eee;
+  width: 105px;
+}
