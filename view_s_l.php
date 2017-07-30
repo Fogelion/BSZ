@@ -33,9 +33,9 @@
 		echo ("Destroy all of this!!!!");
 		$view_delete_shop->Db_start();
 		header('location: shops&locs_list.php');
-	} else {
+	} /*else {
 		echo ("Hmm..It's doesn't work?");
-	}
+	}*/
 	?>
 	<title><?php echo $view_title; ?></title>
 	<?php

@@ -1,42 +1,184 @@
-<title>Журнал АСУТП</title>
-<a href="edit_record.php">Add a new record</a> <br>
-<a href="shops&locs_list.php">List of shops and locations</a> <br>
-<div class="calender">
-</div>
-<div class="notice">
-</div>
-<div class="shifts">
-	<table>
-		<tr>
-			<td>№ смены</td>
-			<td>Состав смены</td>
-		</tr>
-		<tr>
-			<td>Смена № 1</td>
-			<td></td>
-		</tr>
-		<tr>
-			<td>Смена № 2</td>
-			<td></td>
-		</tr>
-		<tr>
-			<td>Смена № 3</td>
-			<td></td>
-		</tr>
-		<tr>
-			<td>Смена № 4</td>
-			<td></td>
-		</tr>
-	</table>
-</div>
-
 <?php
 	spl_autoload_register(function($class) {
 		include 'classes/'.$class.'Class.php';
 	});
+	$index_order_time_default = "time DESC";
+	$index_order_id_default = "id_rec DESC";
+	$index_order_default = "ORDER BY ".$index_order_time_default.", ".$index_order_id_default;
+	$index_where_default = "";
 
+	$index_order = (!empty($_GET['index_order'])) ? $_GET['index_order'] : $index_order_default;
+	$index_where = (!empty($_GET['index_where'])) ? $_GET['index_where'] : $index_where_default;
+	echo ("where = ".$index_where);
+
+
+	function show_filt_time($order) {
+		$prepare_order = substr($order, 9);
+		$arr_order = explode(", ", $prepare_order);
+		if (in_array("time DESC", $arr_order)) {
+			$sel0 = "";
+			$sel1 = "selected";
+			$sel2 = "";
+		} elseif (in_array("time ASC", $arr_order)) {
+			$sel0 = "";
+			$sel1 = "";
+			$sel2 = "selected";
+		}	else {
+			$sel0 = "selected";
+			$sel1 = "";
+			$sel2 = "";
+		}
+		$opt1 = '<option value="time DESC" '.$sel1.'>'.'Сперва новые'.'</option>';
+		echo $opt1;
+		$opt2 = '<option value="time ASC" '.$sel2.'>'.'Сперва старые'.'</option>';
+		echo $opt2;
+		$opt0 = '<option value="" '.$sel0.'>'.'Без времени'.'</option>';
+		echo $opt0;
+	};
+
+	function show_filt_id($order) {
+		$prepare_order = substr($order, 9);
+		$arr_order = explode(", ", $prepare_order);
+		if (in_array("id_rec DESC", $arr_order)) {
+			$sel0 = "";
+			$sel1 = "selected";
+			$sel2 = "";
+		} elseif (in_array("id_rec ASC", $arr_order)) {
+			$sel0 = "";
+			$sel1 = "";
+			$sel2 = "selected";
+		}	else {
+			$sel0 = "selected";
+			$sel1 = "";
+			$sel2 = "";
+		}
+		$opt1 = '<option value="id_rec DESC" '.$sel1.'>'.'По убыванию'.'</option>';
+		echo $opt1;
+		$opt2 = '<option value="id_rec ASC" '.$sel2.'>'.'По возрастанию'.'</option>';
+		echo $opt2;
+		$opt0 = '<option value="" '.$sel0.'>'.'Без идентификатора'.'</option>';
+		echo $opt0;
+	};
+
+	function show_filt_status($where) {
+		$prepare_where = substr($where, 6);
+		$arr_where = explode(", ", $prepare_where);
+		echo $prepare_where;
+		print_r ($arr_where);
+		if (in_array("id_status=1", $arr_where)) {
+			$sel0 = "";
+			$sel1 = "selected";
+			$sel2 = "";
+			$sel3 = "";
+		} elseif (in_array("id_status=2", $arr_where)) {
+			$sel0 = "";
+			$sel1 = "";
+			$sel2 = "selected";
+			$sel3 = "";
+		}	elseif (in_array("id_status=3", $arr_where)) {
+			$sel0 = "";
+			$sel1 = "";
+			$sel2 = "";
+			$sel3 = "selected";
+		}	else {
+			$sel0 = "selected";
+			$sel1 = "";
+			$sel2 = "";
+			$sel3 = "";
+		}
+		$opt1 = '<option value="id_status=1" '.$sel1.'>'.'Заявка открыта'.'</option>';
+		echo $opt1;
+		$opt2 = '<option value="id_status=2" '.$sel2.'>'.'Заявка закрыта'.'</option>';
+		echo $opt2;
+		$opt3 = '<option value="id_status=3" '.$sel3.'>'.'Без заявки'.'</option>';
+		echo $opt3;
+		$opt0 = '<option value="" '.$sel0.'>'.'Без сортировкии'.'</option>';
+		echo $opt0;
+	};
+
+
+
+
+?>
+
+<title>Журнал АСУТП</title>
+<a href="edit_record.php">Add a new record</a> <br>
+<a href="shops&locs_list.php">List of shops and locations</a> <br>
+<!-- <div class="info">
+	<div class="calender">
+	</div>
+	<div class="notice">
+	</div>
+	<div class="shifts">
+		<table>
+			<tr>
+				<td>№ смены</td>
+				<td>Состав смены</td>
+			</tr>
+			<tr>
+				<td>Смена № 1</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>Смена № 2</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>Смена № 3</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>Смена № 4</td>
+				<td></td>
+			</tr>
+		</table>
+	</div>
+</div> -->
+
+<div class="index_filter">
+	<br>
+	<input type="button" name="o_c_filter" value="Filter">
+	<div class="index_content_of_filter" id="all_filter">
+			<fieldset>
+				<div class="index_filter_time">
+					<label for="filt_time">Сортировка по времени: </label>
+					<select name="filt_time" id="filt_time" class="filter_time">
+						<?php show_filt_time($index_order); ?>
+					</select> <br>
+				</div>
+				<div class="index_filter_id">
+					<label for="filt_id">Сортировка по идентификатору: </label>
+					<select name="filt_id" id="filt_id" class="filter_id">
+						<?php show_filt_id($index_order); ?>
+					</select> <br>
+				</div>
+				<div class="index_filter_status">
+					<label for="filt_status">Сортировка статусу заявки: </label>
+					<select name="filt_status" id="filt_status" class="filter_status">
+						<?php show_filt_status($index_where); ?>
+					</select>
+				</div>
+				<div class="index_filter_loc">
+					
+				</div>
+			</fieldset>
+			<a href="#" id="filter_href">
+				<input type="button" name="send_filter" value="Apply filter" id="apply_filter">
+			</a>
+			<a href="index.php" id="filter_reset">
+				<input type="button" name="reset_filter" value="Reset filter" id="reset_filter">
+			</a>
+	</div>
+</div>
+
+
+
+<?php
+
+/*	$index_main = new DB_index_main_select("SELECT", "*", "records", "INNER JOIN status USING (id_status) ".
+		"INNER JOIN locations USING (id_loc) "."INNER JOIN shops USING (id_shop) ","ORDER BY time DESC, id_rec DESC","","","");*/
 	$index_main = new DB_index_main_select("SELECT", "*", "records", "INNER JOIN status USING (id_status) ".
-		"INNER JOIN locations USING (id_loc) "."INNER JOIN shops USING (id_shop) ","ORDER BY time DESC, id_rec DESC","","","");
+		"INNER JOIN locations USING (id_loc) "."INNER JOIN shops USING (id_shop) ", $index_order, $index_where,"","");
 	$index_main->Db_start();
 
 ?>

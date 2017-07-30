@@ -31,7 +31,7 @@
 				'&amp;description='.$description.'&amp;solution='.$solution.
 				'&amp;alert='.$alert.'&amp;notice='.$notice.'&amp;id_rec='.$id_rec.
 				'&amp;num_rec='.$num_rec.'&amp;id_shop='.$row['id_shop'].
-				'&amp;id_loc='.$row['id_loc'].'" class="edit_rec">Редактировать</a></td>';
+				'&amp;id_loc='.$row['id_loc'].'" class="edit_rec"><input type="button" name="o_c_filter" value="Редактировать"></a></td>';
 ?>
 				<section class="record">
 				<h2>Запись № <?php echo $num_rec; ?>, <span>ID: <?php echo $id_rec; ?></span></h2>

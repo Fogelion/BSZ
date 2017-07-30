@@ -1,8 +1,8 @@
-
 $(document).ready(function() {
 		
 	/*Отображение участков согласно выборанному цеху на странице добавления/редактирования записей*/	
 	var add_rec_locs = function() {
+    console.log("Hello");
 		$(".er_location").on("mouseenter", function() {
 			var $id_shop = $('.er_shop').val();
 			console.log($id_shop);
@@ -53,7 +53,39 @@ $(document).ready(function() {
   	});
   };
 
+ /* Фильтр - формирование href в кнопке на основе выбранных пунтков для последующеё отправки GET-зароса с неё*/
+  var indexFormTheFilter = function() {
+    var hrefFilterDefault = "#";
+    $("#apply_filter").on("mouseenter", function() {
+      var orderDefault = "ORDER BY time DESC, id_rec DESC";
+      var $order =  "ORDER BY ";
+      var $time = $(".filter_time").val();
+      var $id = $(".filter_id").val();
+      if (($time == "") && ($id !== "")) {
+         $order += $id;
+      } else if (($time !== "") && ($id == "")) {
+        $order += $time;
+      } else if (($time !== "" ) && ($id !== "")) {
+        $order += $time + ", " + $id;
+      } else {
+        $order = orderDefault;
+      }
+      console.log($order);
 
+      var whereDefault = "";
+      var $where = "WHERE ";
+      var $status = $(".filter_status").val(); 
+      if ($status !=="") {
+        $where += $status;
+      } else {
+        $where = whereDefault;
+      }
+      var $href = "index.php?index_order=" + $order + "&index_where=" + $where;
+      console.log($href);
+      $("#filter_href").attr("href", $href);
+    });
+
+  };
 
 
 
@@ -65,6 +97,7 @@ listLocsInShop();
 listActiveShop();
 viewShopDeleteButtonShow();
 viewShopDeleteButtonHide();
+indexFormTheFilter();
 
 });
 
