@@ -40,13 +40,13 @@ $(document).ready(function() {
     });
   };
 
-
+//Показать окно подтверждения удаления цеха
   var viewShopDeleteButtonShow = function() {
   	$("#view_shop_delete_button_show").on("click", function() {
   		$(".view_shop_delete_check").show();
   	});
   };
-
+//Скрыть окно подтверждения удаления цеха
   var viewShopDeleteButtonHide = function() {
   	$("#view_shop_delete_button_hide").on("click", function() {
   		$(".view_shop_delete_check").hide();
