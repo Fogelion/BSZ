@@ -4,10 +4,8 @@ $(document).ready(function() {
 	var add_rec_locs = function() {
 		$(".er_location").on("mouseenter", function() {
 			var $id_shop = $('.er_shop').val();
-			console.log($id_shop);
 			$('.er_location').children().hide();
 			var $locOn = $('option.id_shop_' + $id_shop);
-			console.log($locOn);
 			$locOn.show();
 		});
 	};
@@ -16,12 +14,9 @@ $(document).ready(function() {
 	var listLocsInShop = function() {
 			$(".shops_list a span.list_shop").toArray().forEach(function (element) {
 			$(element).on("click", function () {
-				console.log(element);
 				var $shopClass = $(element).parent().attr("class");
-				console.log($shopClass);
 				$(".locs_list > *").hide();
     		var $locOn = $(".locs_list ." + $shopClass);
-    		console.log($locOn);
    			$locOn.show();
  				return false;
  			});
