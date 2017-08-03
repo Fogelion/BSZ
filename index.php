@@ -66,7 +66,7 @@
 	};
 
 	function show_filt_status($where) {
-		$prepare_where = substr($where, 6);
+		$prepare_where = substr($where, 6, 11);
 		$arr_where = explode(", ", $prepare_where);
 		echo $prepare_where;
 		print_r ($arr_where);
@@ -166,12 +166,15 @@
 				<div class="index_filter_shop">
 					<label for="filt_shop">Сортировка цеху: </label>
 					<select name="filt_shop" id="filt_shop" class="filter_shop er_shop">
+					<!-- <option value="13" selected>333333333333</option> -->
+					<option value="" selected>Все цеха</option>
 					<?php $rec_shop->Db_start(); ?>
 					</select>
 				</div>
 				<div class="index_filter_loc">
 					<label for="filt_loc">Сортировка участку: </label>
 					<select name="filt_loc" id="filt_loc" class="filter_loc er_location">
+					<option value="" selected>Все участки</option>
 					<?php $rec_loc->Db_start(); ?>
 					</select>
 

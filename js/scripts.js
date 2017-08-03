@@ -64,13 +64,39 @@ $(document).ready(function() {
       } else {
         $order = orderDefault;
       }
-      console.log($order);
 
       var whereDefault = "";
       var $where = "WHERE ";
       var $status = $(".filter_status").val();
-      if ($status !=="") {
+
+      //так как в таблице записей нет цехов, то ищутся все участки, принадлежащие этому цеху
+      var $idShop = $(".filter_shop").val();
+      var $locsInShop = [];
+      $(".filter_loc option").each(function () {
+        $idLoc = $(this).val();
+        $isLocForShop = $idLoc.indexOf($idShop);
+        if ($isLocForShop === 0) {
+          $locsInShop.push($idLoc);
+        }
+      });
+      console.log($locsInShop);
+
+
+
+      if ($status !=="" && $idShop == "") {
         $where += $status;
+      } else if ($status !=="" && $idShop !== "") {
+        $where += $status + " AND ( ";
+        $locsInShop.forEach(function(elem) {
+          $where += "id_loc=" + elem + " OR ";
+        });
+        $where = $where.substr(0, ($where.length-4));
+        $where += " )";
+      } else if ($status =="" && $idShop !== "") {
+        $locsInShop.forEach(function(elem) {
+          $where += "id_loc=" + elem + " OR ";
+        });
+        $where = $where.substr(0, ($where.length-4));
       } else {
         $where = whereDefault;
       }
@@ -94,19 +120,3 @@ viewShopDeleteButtonHide();
 indexFormTheFilter();
 
 });
-
-
-
-
-
-/*  var confirmation = function() {
-  	$("#view_shop_form").submit(function(e) {
-  		console.log("дошло до сабмита");
-  		e.preventDefault();
-  		if (confirm("Вы уверены, что хотите удалить?")) {
-  			return true;
-  		} else {
-  			e.preventDefault();
-  		}
-  	});
-  };*/
