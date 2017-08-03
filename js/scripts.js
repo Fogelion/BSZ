@@ -1,6 +1,6 @@
 $(document).ready(function() {
-		
-	/*Отображение участков согласно выборанному цеху на странице добавления/редактирования записей*/	
+
+	/*Отображение участков согласно выборанному цеху на странице добавления/редактирования записей*/
 	var add_rec_locs = function() {
     console.log("Hello");
 		$(".er_location").on("mouseenter", function() {
@@ -74,7 +74,7 @@ $(document).ready(function() {
 
       var whereDefault = "";
       var $where = "WHERE ";
-      var $status = $(".filter_status").val(); 
+      var $status = $(".filter_status").val();
       if ($status !=="") {
         $where += $status;
       } else {

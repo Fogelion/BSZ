@@ -11,6 +11,11 @@
 	$index_where = (!empty($_GET['index_where'])) ? $_GET['index_where'] : $index_where_default;
 	echo ("where = ".$index_where);
 
+	$rec_shop = new DB_edit_rec_shop_select("SELECT", "*", "shops", "","ORDER BY id_shop ASC",
+	 "", "", "");
+	$rec_loc = new DB_edit_rec_loc_select("SELECT", "*", "locations", "","ORDER BY id_shop ASC,
+	 (location+0) ASC", "", "", "");
+
 
 	function show_filt_time($order) {
 		$prepare_order = substr($order, 9);
@@ -158,8 +163,18 @@
 						<?php show_filt_status($index_where); ?>
 					</select>
 				</div>
+				<div class="index_filter_shop">
+					<label for="filt_shop">Сортировка цеху: </label>
+					<select name="filt_shop" id="filt_shop" class="filter_shop">
+					<?php $rec_shop->Db_start(); ?>
+					</select>
+				</div>
 				<div class="index_filter_loc">
-					
+					<label for="filt_loc">Сортировка цеху: </label>
+					<select name="filt_loc" id="filt_loc" class="filter_loc">
+					<?php $rec_loc->Db_start(); ?>
+					</select>
+
 				</div>
 			</fieldset>
 			<a href="#" id="filter_href">
