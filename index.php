@@ -101,6 +101,15 @@
 	};
 
 
+	function show_filt_alert($where) {
+		$prepare_where = substr($where, 6);
+		echo $prepare_where;
+		$checked = ($prepare_where == "alert=1") ? "checked" : "";
+		echo '<label><input type="checkbox" name="index_alert" '.$checked.' value="1">Показать</label>';
+
+	}
+
+
 
 
 ?>
@@ -177,7 +186,11 @@
 					<option value="" selected>Все участки</option>
 					<?php $rec_loc->Db_start(); ?>
 					</select>
-
+				</div>
+				<div class="index_filter_alert">
+					<label>Заявки с пометкой "обратить внимание":</label>
+					<?php show_filt_alert($index_where); ?>
+					<br>
 				</div>
 			</fieldset>
 			<a href="#" id="filter_href">

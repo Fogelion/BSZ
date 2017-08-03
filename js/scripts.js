@@ -69,6 +69,8 @@ $(document).ready(function() {
       var $where = "WHERE ";
       var $status = $(".filter_status").val();
       var $loc = $(".filter_loc").val();
+      var $alert = $("[name=index_alert]:checked").val();
+      console.log($alert);
 
       //так как в таблице записей нет цехов, то ищутся все участки, принадлежащие этому цеху
       var $shop = $(".filter_shop").val();
@@ -82,8 +84,9 @@ $(document).ready(function() {
       });
 
 
-
-      if ($status !=="" && $shop == "" && $loc == "") {                        //фильтр по статусу
+      if ($alert == 1) {                                                      //фильтр по алёрту
+        $where += "alert=" + $alert;
+      } else if($status !=="" && $shop == "" && $loc == "") {                  //фильтр по статусу
         $where += $status;
       } else if ($status !=="" && $shop !== "" && $loc == "") {                // фильтр по статусу и цеху
         $where += $status + " AND ( ";
