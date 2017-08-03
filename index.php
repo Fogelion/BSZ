@@ -9,7 +9,6 @@
 
 	$index_order = (!empty($_GET['index_order'])) ? $_GET['index_order'] : $index_order_default;
 	$index_where = (!empty($_GET['index_where'])) ? $_GET['index_where'] : $index_where_default;
-	echo ("where = ".$index_where);
 
 	$rec_shop = new DB_edit_rec_shop_select("SELECT", "*", "shops", "","ORDER BY id_shop ASC",
 	 "", "", "");
@@ -166,7 +165,6 @@
 				<div class="index_filter_shop">
 					<label for="filt_shop">Сортировка цеху: </label>
 					<select name="filt_shop" id="filt_shop" class="filter_shop er_shop">
-					<!-- <option value="13" selected>333333333333</option> -->
 					<option value="" selected>Все цеха</option>
 					<?php $rec_shop->Db_start(); ?>
 					</select>
@@ -174,6 +172,8 @@
 				<div class="index_filter_loc">
 					<label for="filt_loc">Сортировка участку: </label>
 					<select name="filt_loc" id="filt_loc" class="filter_loc er_location">
+					<!-- <option value="1301" selected>1301</option>
+					<option value="" >Все участки</option> -->
 					<option value="" selected>Все участки</option>
 					<?php $rec_loc->Db_start(); ?>
 					</select>

@@ -15,7 +15,6 @@
 					$id_loc_prepare = substr($id_loc_filt, $id_loc_pos);
 					$id_shop_prepare = substr($id_loc_prepare, 7,2);
 					$id = $id_shop_prepare;
-					echo $id_shop_prepare;
 				}
 
 				$selected = ($row['id_shop'] == $id) ? "selected" : "";
