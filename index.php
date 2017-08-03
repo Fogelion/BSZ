@@ -165,13 +165,13 @@
 				</div>
 				<div class="index_filter_shop">
 					<label for="filt_shop">Сортировка цеху: </label>
-					<select name="filt_shop" id="filt_shop" class="filter_shop">
+					<select name="filt_shop" id="filt_shop" class="filter_shop er_shop">
 					<?php $rec_shop->Db_start(); ?>
 					</select>
 				</div>
 				<div class="index_filter_loc">
-					<label for="filt_loc">Сортировка цеху: </label>
-					<select name="filt_loc" id="filt_loc" class="filter_loc">
+					<label for="filt_loc">Сортировка участку: </label>
+					<select name="filt_loc" id="filt_loc" class="filter_loc er_location">
 					<?php $rec_loc->Db_start(); ?>
 					</select>
 

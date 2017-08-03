@@ -1,8 +1,7 @@
 $(document).ready(function() {
 
-	/*Отображение участков согласно выборанному цеху на странице добавления/редактирования записей*/
+	/*Отображение участков согласно выборанному цеху на странице добавления/редактирования записей и в фильтре на главноё странице*/
 	var add_rec_locs = function() {
-    console.log("Hello");
 		$(".er_location").on("mouseenter", function() {
 			var $id_shop = $('.er_shop').val();
 			console.log($id_shop);
