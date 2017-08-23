@@ -31,22 +31,31 @@
 				'&amp;description='.$description.'&amp;solution='.$solution.
 				'&amp;alert='.$alert.'&amp;notice='.$notice.'&amp;id_rec='.$id_rec.
 				'&amp;num_rec='.$num_rec.'&amp;id_shop='.$row['id_shop'].
-				'&amp;id_loc='.$row['id_loc'].'" class="edit_rec"><input type="button" name="o_c_filter" value="Редактировать"></a></td>';
+				'&amp;id_loc='.$row['id_loc'].'" class="edit_rec"><i class="fa fa-pencil-square-o fa-1x" aria-hidden="true"></i></a></td>';
 ?>
+
+
+
 				<section class="record">
-				<h2>Запись № <?php echo $num_rec; ?>, <span>ID: <?php echo $id_rec; ?></span></h2>
+				<h2>Запись № <?php echo $num_rec; ?> <span class="record_edit"> <?php echo $edit_param; ?> </span></h2>
 					<div class="info">
-						<table>
-							<tr> 
+						<!-- <table>
+							<tr>
+								<td><span class="record_id">ID: <?php echo $id_rec; ?></span></td>
 								<td><span>Дата: </span> <?php echo $time; ?></td>
 								<td><span>Смена № </span> <?php echo $shift; ?></td>
 								<td><span>Локация: </span> <?php echo $location; ?></td>
 								<td><span>Статус вызова: </span> <?php echo $id_status; ?></td>
-								<?php
-								echo ($edit_param);
-								?>
 							</tr>
-						</table>
+						</table> -->
+						<ul class="record_data">
+							<li><span class="record_id">ID: <?php echo $id_rec; ?></span></li>
+							<li><span>Дата: </span> <?php echo $time; ?></li>
+							<li><span>Смена № </span> <?php echo $shift; ?></li>
+							<br>
+							<li><span>Локация: </span> <?php echo $location; ?></li>
+							<li><span>Статус вызова: </span> <?php echo $id_status; ?></li>
+						</ul>
 					</div>
 					<div class="description">
 						<table>
@@ -67,7 +76,7 @@
 					<div class="alert"> Alert: <?php echo $alert; ?></div>
 				</section>
 <?php
-			}	
+			}
 		}
 	}
 ?>

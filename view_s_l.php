@@ -1,5 +1,9 @@
 <a href="index.php">Home</a> <br> <br>
 <a href="shops&locs_list.php">Back</a> <br> <br>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <?php
 	spl_autoload_register(function($class) {
 		include 'classes/'.$class.'Class.php';
@@ -7,13 +11,13 @@
 
 	$view_table = $_GET['table'];
 	$view_where = " WHERE ".$_GET['id_name']."=".$_GET['id'];
-	$view_shop = new DB_view_shop_select("SELECT", "*", $view_table, 
+	$view_shop = new DB_view_shop_select("SELECT", "*", $view_table,
 		"","ORDER BY id_shop ASC", $view_where,"","");
-	$view_loc = new DB_view_loc_select("SELECT", "*", $view_table, 
+	$view_loc = new DB_view_loc_select("SELECT", "*", $view_table,
 		"INNER JOIN shops USING (id_shop) ","", $view_where,"","");
-	$view_update_shop = new DB_view_shop_edit_update("UPDATE", "", "shops", "", "", "$view_where", 
+	$view_update_shop = new DB_view_shop_edit_update("UPDATE", "", "shops", "", "", "$view_where",
 		"id_shop, shop", "");
-	$view_delete_shop = new DB_view_shop_delete("DELETE", "", $view_table, 
+	$view_delete_shop = new DB_view_shop_delete("DELETE", "", $view_table,
 		"","", $view_where,"","");
 	if ($_GET['table'] == "shops") {
 		$view_title = "Параметры цеха";

@@ -1,3 +1,10 @@
+
+
+
+
+
+/* shops&locs style */
+
 .shops_list a span{
 	display: inline-block;
   border-radius: 5px 5px 0 0;
@@ -7,8 +14,44 @@
   background: #ddd;
   padding: 5px;
 }
-
 .shops_list a span.active {
   background: #eee;
   width: 105px;
+}
+
+
+
+/* edit_record styles */
+#edit_rec_body {
+  background-color: #fff;
+}
+#records_body {
+  background-color: #EFF1F3;
+  width: 70%;
+  text-align: center;
+  margin: auto;
+  border-radius: 20px;
+}
+
+/* index style */
+.record {
+  background-color: #EFF1F3;
+  width: 50%;
+  margin: auto;
+  margin-left: 3%;
+  border-radius: 20px;
+  padding: 0px 10px;
+}
+.record h2 span{
+  font-size: 70%;
+}
+.record_data {
+  padding-left: 0px;
+  border: 1px solid;
+}
+.record_data li{
+  display: inline;
+  padding-left: 5px;
+  margin: auto;
+  border: 1px dashed;
 }

@@ -1,6 +1,9 @@
 <a href="index.php">Home</a> <br> <br>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<?php 
+<?php
 	spl_autoload_register(function($class) {
 		include 'classes/'.$class.'Class.php';
 	});
@@ -9,9 +12,9 @@
 	 "", "", "");
 	$rec_loc = new DB_edit_rec_loc_select("SELECT", "*", "locations", "","ORDER BY id_shop ASC,
 	 (location+0) ASC", "", "", "");
-	$rec_send = new DB_edit_rec_send_insert("INSERT INTO", "", "records", "", "", "", 
+	$rec_send = new DB_edit_rec_send_insert("INSERT INTO", "", "records", "", "", "",
 		"time, shift, id_loc, id_status, description, solution, notice, alert", "");
-	$rec_get = new DB_edit_rec_get_update("UPDATE", "", "records", "", "", "", 
+	$rec_get = new DB_edit_rec_get_update("UPDATE", "", "records", "", "", "",
 		"time, shift, id_loc, id_status, description, solution, notice, alert", "");
 
 	if ((isset($_POST['submit'])) && (empty($_GET))) {
@@ -96,7 +99,8 @@
 
 ?>
 <title><?php echo $title_val; ?></title>
-<div>
+<body id="edit_rec_body">
+<div id="records_body">
 	<form  name="add_record" action="<?php $_SERVER['PHP_SELF'] ?>" method="POST">
 
 	<p><?php echo $greeting; ?></p>
@@ -106,7 +110,7 @@
 		<input type="date" name="time" id="time" value="<?php echo $time; ?>"> <br> <br>
 
 		<label for="shift">Смена:</label>
-		<input type="number" name="shift" id="shift" min="1" max="4" value="<?php echo $shift; ?>"> <br> 
+		<input type="number" name="shift" id="shift" min="1" max="4" value="<?php echo $shift; ?>"> <br>
 		</fieldset><br>
 
 		<fieldset>
@@ -136,15 +140,15 @@
 		<textarea required name="solution" id="solution" rows="2" cols="60"><?php show_solution(); ?></textarea> <br> <br>
 
 		<label for="notice">Замечания:</label>
-		<textarea name="notice" id="notice" rows="2" cols="60"><?php show_notice(); ?></textarea> <br> 
+		<textarea name="notice" id="notice" rows="2" cols="60"><?php show_notice(); ?></textarea> <br>
 		</fieldset><br>
 
 		<fieldset>
 		<label>Alert:</label>
 		<?php show_alert($alert); ?>
-		<br> 
+		<br>
 		</fieldset><br>
-		
+
 		<input type="submit" name="submit" id="submit" value="<?php echo $submit_val; ?>">
 	</form>
 </div>
@@ -153,3 +157,4 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="js/scripts.js"></script>
+</body>

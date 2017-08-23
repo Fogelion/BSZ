@@ -1,3 +1,18 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Журнал АСУТП</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+</head>
+<body>
+
+
+
 <?php
 	spl_autoload_register(function($class) {
 		include 'classes/'.$class.'Class.php';
@@ -114,9 +129,11 @@
 
 ?>
 
-<title>Журнал АСУТП</title>
+
 <a href="edit_record.php">Add a new record</a> <br>
 <a href="shops&locs_list.php">List of shops and locations</a> <br>
+
+
 <!-- <div class="info">
 	<div class="calender">
 	</div>
@@ -150,9 +167,9 @@
 
 <div class="index_filter">
 	<br>
-	<input type="button" name="o_c_filter" value="Filter">
+	<input type="button" value="Filter" id="filter_button">
 	<div class="index_content_of_filter" id="all_filter">
-			<fieldset>
+			<fieldset id="filter_body">
 				<div class="index_filter_time">
 					<label for="filt_time">Сортировка по времени: </label>
 					<select name="filt_time" id="filt_time" class="filter_time">
@@ -192,13 +209,13 @@
 					<?php show_filt_alert($index_where); ?>
 					<br>
 				</div>
-			</fieldset>
 			<a href="#" id="filter_href">
 				<input type="button" name="send_filter" value="Apply filter" id="apply_filter">
 			</a>
 			<a href="index.php" id="filter_reset">
 				<input type="button" name="reset_filter" value="Reset filter" id="reset_filter">
 			</a>
+			</fieldset>
 	</div>
 </div>
 
@@ -213,5 +230,7 @@
 	$index_main->Db_start();
 
 ?>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="js/scripts.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="js/scripts.js"></script>
+</body>
+</html>

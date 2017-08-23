@@ -113,8 +113,12 @@ $(document).ready(function() {
     });
 
   };
-
-
+/*Скрыть или показать окошко фильтра*/
+  var hideFilter = function() {
+    $("#filter_button").on("click", function () {
+      $("#filter_body").toggle();
+    });
+  };
 
 
 
@@ -125,5 +129,6 @@ listActiveShop();
 viewShopDeleteButtonShow();
 viewShopDeleteButtonHide();
 indexFormTheFilter();
+hideFilter();
 
 });
