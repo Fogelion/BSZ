@@ -38,27 +38,27 @@
 
 				<section class="record">
 				<h2>Запись № <?php echo $num_rec; ?> <span class="record_edit"> <?php echo $edit_param; ?> </span></h2>
-					<div class="info">
-						<!-- <table>
-							<tr>
-								<td><span class="record_id">ID: <?php echo $id_rec; ?></span></td>
-								<td><span>Дата: </span> <?php echo $time; ?></td>
-								<td><span>Смена № </span> <?php echo $shift; ?></td>
-								<td><span>Локация: </span> <?php echo $location; ?></td>
-								<td><span>Статус вызова: </span> <?php echo $id_status; ?></td>
-							</tr>
-						</table> -->
-						<ul class="record_data">
-							<li><span class="record_id">ID: <?php echo $id_rec; ?></span></li>
-							<li><span>Дата: </span> <?php echo $time; ?></li>
-							<li><span>Смена № </span> <?php echo $shift; ?></li>
-							<br>
-							<li><span>Локация: </span> <?php echo $location; ?></li>
-							<li><span>Статус вызова: </span> <?php echo $id_status; ?></li>
-						</ul>
-					</div>
-					<div class="description">
-						<table>
+					<ul class="record_data">
+						<li><span class="record_id">ID: <?php echo $id_rec; ?></span></li>
+						<li><span>Дата: </span> <?php echo $time; ?></li>
+						<li><span>Смена № </span> <?php echo $shift; ?></li>
+						<br>
+						<li><span>Локация: </span> <?php echo $location; ?></li>
+						<li><span>Статус вызова: </span> <?php echo $id_status; ?></li>
+					</ul>
+					<ul class="description">
+						<li><span>Описание: </span></li>
+						<li><?php echo $description; ?></li>
+					</ul>
+					<ul class="solution">
+						<li><span>Решение: </span></li>
+						<li><?php echo $solution; ?></li>
+					</ul>
+					<ul class="notice">
+						<li><span>Замечания: </span></li>
+						<li><?php echo $notice; ?></li>
+					</ul>
+<!-- 						<table>
 							<tr>
 								<td><span>Описание: </span></td>
 								<td><?php echo $description; ?></td>
@@ -71,8 +71,7 @@
 								<td><span>Замечания: </span></td>
 								<td><?php echo $notice; ?></td>
 							</tr>
-						</table>
-					</div>
+						</table> -->
 					<div class="alert"> Alert: <?php echo $alert; ?></div>
 				</section>
 <?php

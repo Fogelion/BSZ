@@ -26,7 +26,7 @@
   background-color: #fff;
 }
 #records_body {
-  background-color: #EFF1F3;
+  background-color: #EFEFEF;
   width: 70%;
   text-align: center;
   margin: auto;
@@ -35,23 +35,31 @@
 
 /* index style */
 .record {
-  background-color: #EFF1F3;
+  background-color: #EFEFEF;
   width: 50%;
   margin: auto;
   margin-left: 3%;
   border-radius: 20px;
   padding: 0px 10px;
 }
+.record li {
+  display: inline;
+  padding: 0px;
+ /*  padding-left: 5px; */
+  margin: 5px 0px;
+  text-align: center;
+}
+.record ul{
+  padding: 6px;
+  /* padding-left: 0px; */
+  border: 1px solid;
+  border-radius: 10px;
+}
 .record h2 span{
   font-size: 70%;
 }
-.record_data {
-  padding-left: 0px;
-  border: 1px solid;
-}
 .record_data li{
-  display: inline;
-  padding-left: 5px;
-  margin: auto;
-  border: 1px dashed;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  border: 1px outset #fafafa;
 }
