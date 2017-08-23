@@ -121,6 +121,20 @@ $(document).ready(function() {
   };
 
 
+/*Скрыть или показать знак алёрта*/
+  var hideAlert = function() {
+    $(".record").each(function() {
+      $alertVal = $(".alert_val", this).html();
+      console.log($alertVal);
+      if ($alertVal == 0) {
+        $(".fa-exclamation-circle", this).hide();
+      }
+    });
+    /*var $alertVal = $(".alert_val").html();
+    console.log($alertVal);*/
+  };
+
+
 
 
 add_rec_locs();
@@ -130,5 +144,6 @@ viewShopDeleteButtonShow();
 viewShopDeleteButtonHide();
 indexFormTheFilter();
 hideFilter();
+hideAlert();
 
 });

@@ -37,7 +37,7 @@
 
 
 				<section class="record">
-				<h2>Запись № <?php echo $num_rec; ?> <span class="record_edit"> <?php echo $edit_param; ?> </span></h2>
+				<h2><i class="fa fa-exclamation-circle" aria-hidden="true"></i>Запись № <?php echo $num_rec; ?> <span class="record_edit"> <?php echo $edit_param; ?> </span></h2>
 					<ul class="record_data">
 						<li><span class="record_id">ID: <?php echo $id_rec; ?></span></li>
 						<li><span>Дата: </span> <?php echo $time; ?></li>
@@ -58,21 +58,7 @@
 						<li><span>Замечания: </span></li>
 						<li><?php echo $notice; ?></li>
 					</ul>
-<!-- 						<table>
-							<tr>
-								<td><span>Описание: </span></td>
-								<td><?php echo $description; ?></td>
-							</tr>
-							<tr>
-								<td><span>Решение: </span></td>
-								<td><?php echo $solution; ?></td>
-							</tr>
-							<tr>
-								<td><span>Замечания: </span></td>
-								<td><?php echo $notice; ?></td>
-							</tr>
-						</table> -->
-					<div class="alert"> Alert: <?php echo $alert; ?></div>
+					<div class="alert"> Alert: <span class="alert_val"><?php echo $alert; ?></span></div>
 				</section>
 <?php
 			}

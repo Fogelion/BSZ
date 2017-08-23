@@ -63,3 +63,10 @@
   border-radius: 5px;
   border: 1px outset #fafafa;
 }
+.record .alert {
+  display:  none;
+}
+.fa-exclamation-circle {
+  color: red;
+  padding: 5px;
+}
