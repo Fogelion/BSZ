@@ -118,7 +118,6 @@
 
 	function show_filt_alert($where) {
 		$prepare_where = substr($where, 6);
-		echo $prepare_where;
 		$checked = ($prepare_where == "alert=1") ? "checked" : "";
 		echo '<label><input type="checkbox" name="index_alert" '.$checked.' value="1">Показать</label>';
 

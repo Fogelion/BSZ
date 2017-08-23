@@ -121,18 +121,26 @@ $(document).ready(function() {
   };
 
 
-/*Скрыть или показать знак алёрта*/
+/*Скрыть лишний знак алёрта*/
   var hideAlert = function() {
     $(".record").each(function() {
       $alertVal = $(".alert_val", this).html();
-      console.log($alertVal);
       if ($alertVal == 0) {
         $(".fa-exclamation-circle", this).hide();
       }
     });
-    /*var $alertVal = $(".alert_val").html();
-    console.log($alertVal);*/
   };
+
+/*Скрыть пустое поле замечаний*/
+  var hideNotice = function() {
+    $(".record").each(function() {
+      $noticeVal = $(".notice_val", this).html();
+      if ($noticeVal == "") {
+        $(".notice", this).hide();
+      }
+    });
+  };
+
 
 
 
@@ -145,5 +153,6 @@ viewShopDeleteButtonHide();
 indexFormTheFilter();
 hideFilter();
 hideAlert();
+hideNotice();
 
 });

@@ -56,7 +56,7 @@
 					</ul>
 					<ul class="notice">
 						<li><span>Замечания: </span></li>
-						<li><?php echo $notice; ?></li>
+						<li><span class="notice_val"><?php echo $notice; ?></span></li>
 					</ul>
 					<div class="alert"> Alert: <span class="alert_val"><?php echo $alert; ?></span></div>
 				</section>
