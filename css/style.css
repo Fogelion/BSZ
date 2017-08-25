@@ -1,3 +1,8 @@
+/* general */
+.text_bold {
+  font-weight: bold;
+}
+
 
 /* shops&locs style */
 
@@ -103,4 +108,32 @@ font-size: 130%;
 }
 .navigation li a:hover, .navigation li a:focus{
   text-decoration: none;
+}
+/* filter */
+.index_filter{
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.index_filter .container{
+  border: 1px solid;
+  width: 60%;
+  margin-left: 3%;
+  padding: 10px;
+}
+.index_filter .container .align_left{
+  text-align: left;
+}
+.index_filter .container .align_right{
+  text-align: right;
+}
+.index_filter .container .index_buttons{
+  margin-top: 10px;
+}
+.index_filter .container .index_buttons a{
+  padding: 0px 20px;
+}
+.index_filter .text_bold{
+  font-size: 1.1em;
+  text-decoration: underline;
 }

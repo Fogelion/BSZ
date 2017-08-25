@@ -116,7 +116,7 @@ $(document).ready(function() {
 /*Скрыть или показать окошко фильтра*/
   var hideFilter = function() {
     $("#filter_button").on("click", function () {
-      $("#filter_body").toggle();
+      $("#all_filter").toggle();
     });
   };
 
