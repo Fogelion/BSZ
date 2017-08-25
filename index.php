@@ -132,7 +132,7 @@
 ?>
 
 <main>
-	<div class="index_filter" id="all_filter">
+	<div class="index_filter" id="all_filter" style="display: none;">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12"><span class="text_bold">Сортировка:</span></div>
@@ -173,14 +173,14 @@
 				<div class="col-lg-6 align_right">
 					<label for="filt_shop">по цеху: </label>
 					<select name="filt_shop" id="filt_shop" class="filter_shop er_shop">
-						<option value="" selected>Все цеха</option>
+						<option selected value="">Все цеха</option>
 						<?php $rec_shop->Db_start(); ?>
 					</select>
 				</div>
 				<div class="col-lg-6 align_left">
 					<label for="filt_loc">по участку: </label>
 					<select name="filt_loc" id="filt_loc" class="filter_loc er_location">
-						<option value="" selected>Все участки</option>
+						<option selected value="" id="selected_empty_loc">Все участки</option>
 						<?php $rec_loc->Db_start(); ?>
 					</select>
 				</div>
@@ -213,63 +213,3 @@
 	<script src="js/scripts.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-<!--
-					<div class="index_filter_time filter_line">
-						<label for="filt_time">по времени: </label>
-						<select name="filt_time" id="filt_time" class="filter_time">
-							<?php show_filt_time($index_order); ?>
-						</select>
-					</div>
-
-					<div class="index_filter_id filter_line">
-						<label for="filt_id">по ID: </label>
-						<select name="filt_id" id="filt_id" class="filter_id">
-							<?php show_filt_id($index_order); ?>
-						</select>
-					</div>
-
-
-
-					<p></p>
-					<div class="index_filter_status">
-						<label for="filt_status">по статусу заявки: </label>
-						<select name="filt_status" id="filt_status" class="filter_status">
-							<?php show_filt_status($index_where); ?>
-						</select>
-					</div>
-
-					<div class="index_filter_shop">
-						<label for="filt_shop">по цеху: </label>
-						<select name="filt_shop" id="filt_shop" class="filter_shop er_shop">
-						<option value="" selected>Все цеха</option>
-						<?php $rec_shop->Db_start(); ?>
-						</select>
-					</div>
-
-
-					<div class="index_filter_alert">
-						<label>Заявки с alert:</label>
-						<?php show_filt_alert($index_where); ?>
-					</div>
-
-					<div class="index_filter_loc">
-						<label for="filt_loc">по участку: </label>
-						<select name="filt_loc" id="filt_loc" class="filter_loc er_location">
-						<option value="" selected>Все участки</option>
-						<?php $rec_loc->Db_start(); ?>
-						</select>
-					</div>
-
- -->

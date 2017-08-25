@@ -6,6 +6,7 @@ $(document).ready(function() {
 			var $id_shop = $('.er_shop').val();
 			$('.er_location').children().hide();
 			var $locOn = $('option.id_shop_' + $id_shop);
+      $("#selected_empty_loc").show();  /*Всегда отображать в фильтре нейтральный цчасток для адекватной фильтрации цехов*/
 			$locOn.show();
 		});
 	};
@@ -70,7 +71,7 @@ $(document).ready(function() {
       var $status = $(".filter_status").val();
       var $loc = $(".filter_loc").val();
       var $alert = $("[name=index_alert]:checked").val();
-      console.log($alert);
+      /*console.log($alert);*/
 
       //так как в таблице записей нет цехов, то ищутся все участки, принадлежащие этому цеху
       var $shop = $(".filter_shop").val();
@@ -82,6 +83,7 @@ $(document).ready(function() {
           $locsInShop.push($idLoc);
         }
       });
+
 
 
       if ($alert == 1) {                                                      //фильтр по алёрту
@@ -108,22 +110,29 @@ $(document).ready(function() {
         $where = whereDefault;
       }
       var $href = "index.php?index_order=" + $order + "&index_where=" + $where;
+      console.log("$locsInShop=" + $locsInShop);
+      console.log("$loc=" + $loc);
       console.log($href);
       $("#filter_href").attr("href", $href);
     });
 
   };
+
+
 /*Скрыть или показать окошко фильтра и изменить надпись на кнопке*/
   var hideFilter = function() {
-    $("#filter_button").on("click", function () {
-      $("#all_filter").toggle();
+    var nameFilter = function() {
       var $filterStyle = $("#all_filter").attr("style");
-      if ($filterStyle == "display: block;") {
-        $("#filter_button").text("Скрыть фильтр");
-      } else if ($filterStyle == "display: none;") {
+      if ($filterStyle == "display: none;") {
         $("#filter_button").text("Показать фильтр");
       } else {
+        $("#filter_button").text("Скрыть фильтр");
       }
+    };
+    nameFilter();
+    $("#filter_button").on("click", function () {
+      $("#all_filter").toggle();
+      nameFilter();
     });
   };
 
@@ -148,6 +157,13 @@ $(document).ready(function() {
     });
   };
 
+/*сброс выбранного участка в фильтре, чтобы можно было перевыбирать один лишь цех*/
+  var resetSelectedLocs = function() {
+    $("#filt_loc option").each(function() {
+        $(this).removeAttr("selected");
+      });
+      $("#selected_empty_loc").attr("selected", true);
+  };
 
 
 
@@ -161,5 +177,7 @@ indexFormTheFilter();
 hideFilter();
 hideAlert();
 hideNotice();
+resetSelectedLocs();
 
 });
+

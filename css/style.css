@@ -4,8 +4,8 @@
 }
 
 
-/* shops&locs style */
 
+/* shops&locs style */
 .shops_list a span{
 	display: inline-block;
   border-radius: 5px 5px 0 0;
@@ -33,6 +33,8 @@
   margin: auto;
   border-radius: 20px;
 }
+
+
 
 /* index style */
 /* records */
@@ -72,9 +74,7 @@
   color: red;
   padding: 5px;
 }
-.notice {
-  /* display:  none; */
-}
+
 /* header */
 header {
   background-color: #CCCCCC;
@@ -114,7 +114,7 @@ font-size: 130%;
   text-align: center;
   margin-top: 10px;
   margin-bottom: 10px;
-  display: none;
+  /* display: none; */
 }
 .index_filter .container{
   border: 1px solid;
