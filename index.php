@@ -8,7 +8,18 @@
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+	<header>
 
+		<a href="index.php"><img class="logo" src="img/Begitsky_steel_plant.jpg"></a>
+		<nav class="navigation">
+			<ul>
+				<li><a href="index.php">Главная</a></li>
+				<li><a href="edit_record.php">Добавить запись</a></li>
+				<li><a href="shops&locs_list.php">Список локаций</a></li>
+				<li><a href="">Показать фильтр</a></li>
+			</ul>
+		</nav>
+	</header>
 
 
 <?php
@@ -118,15 +129,10 @@
 		$prepare_where = substr($where, 6);
 		$checked = ($prepare_where == "alert=1") ? "checked" : "";
 		echo '<label><input type="checkbox" name="index_alert" '.$checked.' value="1">Показать</label>';
-
 	}
-
-
-
-
 ?>
 
-
+<main>
 <a href="edit_record.php">Add a new record</a> <br>
 <a href="shops&locs_list.php">List of shops and locations</a> <br>
 
@@ -184,7 +190,7 @@
 	</div>
 </div>
 
-
+</main>
 
 <?php
 	$index_main = new DB_index_main_select("SELECT", "*", "records", "INNER JOIN status USING (id_status) ".

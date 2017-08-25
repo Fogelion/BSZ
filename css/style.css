@@ -30,6 +30,7 @@
 }
 
 /* index style */
+/* records */
 .record {
   background-color: #EFEFEF;
   width: 50%;
@@ -40,13 +41,11 @@
 .record li {
   display: inline;
   padding: 0px;
- /*  padding-left: 5px; */
   margin: 5px 0px;
   text-align: center;
 }
 .record ul{
   padding: 6px;
-  /* padding-left: 0px; */
   border: 1px solid;
   border-radius: 10px;
 }
@@ -70,4 +69,18 @@
 }
 .notice {
   /* display:  none; */
+}
+/* header */
+header {
+  background-color: #A0AE93;\
+  height: 80px;
+}
+.logo {
+  height: 70px;
+}
+.navigation {
+
+}
+.navigation li {
+  display: inline;
 }
