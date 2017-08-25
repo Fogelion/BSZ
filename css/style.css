@@ -114,6 +114,7 @@ font-size: 130%;
   text-align: center;
   margin-top: 10px;
   margin-bottom: 10px;
+  display: none;
 }
 .index_filter .container{
   border: 1px solid;

@@ -113,10 +113,17 @@ $(document).ready(function() {
     });
 
   };
-/*Скрыть или показать окошко фильтра*/
+/*Скрыть или показать окошко фильтра и изменить надпись на кнопке*/
   var hideFilter = function() {
     $("#filter_button").on("click", function () {
       $("#all_filter").toggle();
+      var $filterStyle = $("#all_filter").attr("style");
+      if ($filterStyle == "display: block;") {
+        $("#filter_button").text("Скрыть фильтр");
+      } else if ($filterStyle == "display: none;") {
+        $("#filter_button").text("Показать фильтр");
+      } else {
+      }
     });
   };
 
