@@ -9,11 +9,10 @@
 </head>
 <body>
 	<header>
-
-		<a href="index.php"><img class="logo" src="img/Begitsky_steel_plant.jpg"></a>
+		<a href="index.php"><img class="logo" src="img/Begitsky_steel_plant.png"></a>
 		<nav class="navigation">
 			<ul>
-				<li><a href="index.php">Главная</a></li>
+				<li><a class="header_active" href="index.php">Главная</a></li>
 				<li><a href="edit_record.php">Добавить запись</a></li>
 				<li><a href="shops&locs_list.php">Список локаций</a></li>
 				<li><a href="">Показать фильтр</a></li>

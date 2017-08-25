@@ -72,15 +72,22 @@
 }
 /* header */
 header {
-  background-color: #A0AE93;\
+  background-color: #CCCCCC;
   height: 80px;
+  width: 60%;
+  margin-left: 3%;
+  border-radius: 10px;
 }
 .logo {
   height: 70px;
+  float: left;
 }
 .navigation {
-
+padding-left: 80px;
+padding-top: 30px;
+font-size: 130%;
 }
 .navigation li {
   display: inline;
+  margin: 0px 10px;
 }
