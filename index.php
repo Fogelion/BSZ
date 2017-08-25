@@ -12,10 +12,10 @@
 		<a href="index.php"><img class="logo" src="img/Begitsky_steel_plant.png"></a>
 		<nav class="navigation">
 			<ul>
-				<li><a class="header_active" href="index.php">Главная</a></li>
+				<li class="header_active"><a href="index.php">Главная</a></li>
 				<li><a href="edit_record.php">Добавить запись</a></li>
 				<li><a href="shops&locs_list.php">Список локаций</a></li>
-				<li><a href="">Показать фильтр</a></li>
+				<li><a id="filter_button" href="#">Показать фильтр</a></li>
 			</ul>
 		</nav>
 	</header>
@@ -132,12 +132,8 @@
 ?>
 
 <main>
-<a href="edit_record.php">Add a new record</a> <br>
-<a href="shops&locs_list.php">List of shops and locations</a> <br>
-
 <div class="index_filter">
 	<br>
-	<input type="button" value="Filter" id="filter_button">
 	<div class="index_content_of_filter" id="all_filter">
 			<fieldset id="filter_body">
 				<div class="index_filter_time">
