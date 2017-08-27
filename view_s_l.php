@@ -1,8 +1,4 @@
-<a href="index.php">Home</a> <br> <br>
-<a href="shops&locs_list.php">Back</a> <br> <br>
-<link rel="stylesheet" type="text/css" href="css/style.css">
-<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
 <?php
 	spl_autoload_register(function($class) {
@@ -19,6 +15,51 @@
 		"id_shop, shop", "");
 	$view_delete_shop = new DB_view_shop_delete("DELETE", "", $view_table,
 		"","", $view_where,"","");
+	if ($_GET['table'] == "shops") {
+		$view_title = "Параметры цеха";
+	} elseif ($_GET['table'] == "locations") {
+		$view_title = "Параметры участка";
+	}
+
+?>
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title><?php echo $view_title; ?></title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+	<body>
+		<header>
+			<a href="index.php"><img class="logo" src="img/Begitsky_steel_plant.png"></a>
+			<nav class="navigation">
+				<ul>
+					<li><a href="index.php">Главная</a></li>
+					<li><a href="edit_record.php">Добавить запись</a></li>
+					<li><a href="shops&locs_list.php">Список локаций</a></li>
+				</ul>
+			</nav>
+		</header>
+		<a href="index.php">Home</a> <br> <br>
+		<a href="shops&locs_list.php">Back</a> <br> <br>
+
+		<main>
+
+
+
+
+
+
+
+<?php
 	if ($_GET['table'] == "shops") {
 		$view_title = "Параметры цеха";
 		$view_shop->Db_start();
@@ -40,26 +81,12 @@
 	} /*else {
 		echo ("Hmm..It's doesn't work?");
 	}*/
-	?>
-	<title><?php echo $view_title; ?></title>
-	<?php
 ?>
 
 
 
-
-
-<!-- 	if (isset($_POST['submit']) && ($_POST['submit'] == "Отмена")) {
-		echo ("Cancel!");
-		header("location: shops&locs_list.php");
-	} elseif (isset($_POST['submit']) && ($_POST['submit'] == "Принять изменения")) {
-		echo ("Apply this!!");
-		$view_update_shop->Db_start();
-		header('location: shops&locs_list.php');
-	} elseif ((isset($_POST['submit']))&& ($_POST['submit'] == "Удалить цех")) {
-		echo ("Destroy all of this!!!!");
-		$view_delete_shop->Db_start();
-		/*header('location: shops&locs_list.php');*/
-	} else {
-		echo ("Hmm..It's doesn't work?");
-	} -->
+		</main>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="js/scripts.js"></script>
+	</body>
+</html>

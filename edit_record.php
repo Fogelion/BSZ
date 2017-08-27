@@ -1,7 +1,3 @@
-<a href="index.php">Home</a> <br> <br>
-<link rel="stylesheet" type="text/css" href="css/style.css">
-<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <?php
 	spl_autoload_register(function($class) {
@@ -85,7 +81,8 @@
 		$num_rec = $_GET['num_rec'];
 		$greeting = "Редактирование записи №".$num_rec.":";
 		$submit_val = "Обновить запись";
-		$title_val = "Редактирование записей";
+		$title_val = "Редактировать запись";
+		$header_active = '';
 	} else {
 		$time = date('Y-m-d');
 		$shift = 1;
@@ -93,68 +90,99 @@
 		$alert = 0;
 		$greeting = "Введите данные для создания новой записи:";
 		$submit_val = "Создать запись";
-		$title_val = "Создание записей";
+		$title_val = "Добавить запись";
+		$header_active = 'class="header_active"';
 	}
-
-
 ?>
-<title><?php echo $title_val; ?></title>
+
+
+
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title><?php echo $title_val; ?></title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+	<header>
+		<a href="index.php"><img class="logo" src="img/Begitsky_steel_plant.png"></a>
+		<nav class="navigation">
+			<ul>
+				<li><a href="index.php">Главная</a></li>
+				<li <?php echo $header_active; ?> ><a href="edit_record.php">Добавить запись</a></li>
+				<li><a href="shops&locs_list.php">Список локаций</a></li>
+			</ul>
+		</nav>
+	</header>
+
 <body id="edit_rec_body">
-<div id="records_body">
-	<form  name="add_record" action="<?php $_SERVER['PHP_SELF'] ?>" method="POST">
+<main>
+	<div class="container" id="records_body">
+		<div class="row">
+			<div class="col-lg-2 back_white"><a href="index.php"><i class="fa fa-arrow-circle-o-left fa-5x"></i></a>
+			</div>
+			<div class="col-lg-10 back_grey">
+					<form  name="add_record" action="<?php $_SERVER['PHP_SELF'] ?>" method="POST">
 
-	<p><?php echo $greeting; ?></p>
+					<p><?php echo $greeting; ?></p>
 
-		<fieldset>
-		<label for="time">Дата:</label>
-		<input type="date" name="time" id="time" value="<?php echo $time; ?>"> <br> <br>
+						<fieldset>
+						<label for="time">Дата:</label>
+						<input type="date" name="time" id="time" value="<?php echo $time; ?>"> <br> <br>
 
-		<label for="shift">Смена:</label>
-		<input type="number" name="shift" id="shift" min="1" max="4" value="<?php echo $shift; ?>"> <br>
-		</fieldset><br>
+						<label for="shift">Смена:</label>
+						<input type="number" name="shift" id="shift" min="1" max="4" value="<?php echo $shift; ?>"> <br>
+						</fieldset><br>
 
-		<fieldset>
-		<label for="shop">Цех:</label>
-		<select name="shop" id="shop" class="er_shop">
-			<?php $rec_shop->Db_start(); ?>
-		</select> <br><br>
+						<fieldset>
+						<label for="shop">Цех:</label>
+						<select name="shop" id="shop" class="er_shop">
+							<?php $rec_shop->Db_start(); ?>
+						</select> <br><br>
 
-		<label for="location">Участок:</label>
-		<select name="id_loc" id="location" class="er_location">
-			<?php $rec_loc->Db_start(); ?>
-		</select> <br>
-		</fieldset><br>
+						<label for="location">Участок:</label>
+						<select name="id_loc" id="location" class="er_location">
+							<?php $rec_loc->Db_start(); ?>
+						</select> <br>
+						</fieldset><br>
 
-		<fieldset>
-		<label for="status">Статус заявки:</label>
-		<select name="id_status" id="status" class="er_status">
-		<?php show_status($id_status); ?>
-		</select> <br>
-		</fieldset><br>
+						<fieldset>
+						<label for="status">Статус заявки:</label>
+						<select name="id_status" id="status" class="er_status">
+						<?php show_status($id_status); ?>
+						</select> <br>
+						</fieldset><br>
 
-		<fieldset>
-		<label for="description">Описание <span class="red_star">*</span>:</label>
-		<textarea required name="description" id="description" rows="2" cols="60"><?php show_description(); ?></textarea> <br> <br>
+						<fieldset>
+						<label for="description">Описание <span class="red_star">*</span>:</label>
+						<textarea required name="description" id="description" rows="2" cols="60"><?php show_description(); ?></textarea> <br> <br>
 
-		<label for="solution">Решение <span class="red_star">*</span>:</label>
-		<textarea required name="solution" id="solution" rows="2" cols="60"><?php show_solution(); ?></textarea> <br> <br>
+						<label for="solution">Решение <span class="red_star">*</span>:</label>
+						<textarea required name="solution" id="solution" rows="2" cols="60"><?php show_solution(); ?></textarea> <br> <br>
 
-		<label for="notice">Замечания:</label>
-		<textarea name="notice" id="notice" rows="2" cols="60"><?php show_notice(); ?></textarea> <br>
-		</fieldset><br>
+						<label for="notice">Замечания:</label>
+						<textarea name="notice" id="notice" rows="2" cols="60"><?php show_notice(); ?></textarea> <br>
+						</fieldset><br>
 
-		<fieldset>
-		<label>Alert:</label>
-		<?php show_alert($alert); ?>
-		<br>
-		</fieldset><br>
+						<fieldset>
+						<label>Alert:</label>
+						<?php show_alert($alert); ?>
+						<br>
+						</fieldset><br>
 
-		<input type="submit" name="submit" id="submit" value="<?php echo $submit_val; ?>">
-	</form>
-</div>
-
+						<input type="submit" name="submit" id="submit" value="<?php echo $submit_val; ?>">
+					</form>
+			</div>
+		</div>
+	</div>
+</main>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="js/scripts.js"></script>
 </body>
+</html>

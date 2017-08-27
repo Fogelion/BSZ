@@ -27,10 +27,18 @@
   background-color: #fff;
 }
 #records_body {
+  margin: 10px auto 10px 3%;
+  width: 60%;
+}
+.fa-arrow-circle-o-left{
+  color: grey;
+}
+.back_white{
+  background-color: #fff;
+}
+.back_grey{
   background-color: #EFEFEF;
-  width: 70%;
   text-align: center;
-  margin: auto;
   border-radius: 20px;
 }
 
