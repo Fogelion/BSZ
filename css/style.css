@@ -16,8 +16,21 @@
   padding: 5px;
 }
 .shops_list a span.active {
-  background: #eee;
+  background: #ccc;
   width: 105px;
+}
+.inner_locs{
+  padding: 5px;
+}
+/* .shops_list, .locs_list {
+  margin-left: 5px;
+} */
+
+
+/* view_s_l style */
+#view_body{
+  margin: 10px auto 10px 3%;
+  width: 60%;
 }
 
 

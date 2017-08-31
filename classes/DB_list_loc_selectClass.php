@@ -13,8 +13,9 @@
 				$content = $row[2];
 				$href = 'view_s_l.php?id='.$row['id_loc'].'&amp;table='.$this->db_table.'&amp;id_name='.$field0->name;
 ?>
-				<li class="<?php echo $class_name.'_'.$class_num; ?>"><span class="list_loc"> <?php echo $content; ?> </span></li>
-				<a class ="<?php echo $class_name.'_'.$class_num; ?>" href="<?php echo $href; ?>"><span class ="edit_sign">edit</span></a>
+				<li class="<?php echo $class_name.'_'.$class_num; ?> inner_locs"><span class="list_loc"> <?php echo $content; ?> </span>
+					<a class ="<?php echo $class_name.'_'.$class_num; ?>" href="<?php echo $href; ?>"><i class="fa fa-pencil-square-o fa-1x" aria-hidden="true"></i></a>
+				</li>
 <?php
 			}
 		}

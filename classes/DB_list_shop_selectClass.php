@@ -12,10 +12,11 @@
 				$content = $row[1];
 				$href = 'view_s_l.php?id='.$row['id_shop'].'&amp;table='.$this->db_table.'&amp;id_name='.$field0->name;
 ?>
-				<a class ="edit_sign" href="<?php echo $href; ?>"><span>edit</span></a>
-				<a href="" class="<?php echo $class_name.'_'.$class_num; ?>" ><span class="list_shop"> <?php echo $content; ?> </span></a><br>
+				<a href="" class="<?php echo $class_name.'_'.$class_num; ?>" ><span class="list_shop"> <?php echo $content; ?> </span></a>
+				<a class ="edit_sign" href="<?php echo $href; ?>"><i class="fa fa-pencil-square-o fa-1x" aria-hidden="true"></i></a><br>
 <?php
 			}
 		}
 	}
 ?>
+
